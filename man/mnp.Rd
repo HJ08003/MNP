@@ -168,9 +168,6 @@ standard errors to be larger when there is more missing data.
 ### sets appear in Imai and van Dyk (2005b).
 ###
 
-## set random seed
-set.seed(12345)
-  
 ## load the detergent data
 data(detergent)
 ## run the standard multinomial probit model with intercepts and the price
@@ -184,14 +181,11 @@ summary(res1)
 ## calculate the quantities of interest for the first 3 observations
 pre1 <- predict(res1, newdata = detergent[1:3,])
 
-## set random seed
-set.seed(12345)
-
 ## load the Japanese election data
 data(japan)
 ## run the multinomial probit model with ordered preferences
 res2 <- mnp(cbind(LDP, NFP, SKG, JCP) ~ gender + education + age, data = japan,
-            verbose = TRUE, n.draws = 100)
+            verbose = TRUE)
 ## summarize the results
 summary(res2)
 ## calculate the predicted probabilities for the 10th observation
