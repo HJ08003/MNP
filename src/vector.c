@@ -9,6 +9,7 @@ int* intArray(int num) {
   int *iArray = (int *)malloc(num * sizeof(int));
   if (!iArray)
     error("Out of memory error in intArray\n");
+  for (int i = 0; i < num; i++) iArray[i] = 0;
   return iArray;
 }
 
@@ -27,6 +28,7 @@ int** intMatrix(int row, int col) {
     iMatrix[i] = (int *)malloc(col *  sizeof(int));
     if (!iMatrix[i]) 
       error("Out of memory error in intMatrix\n");
+    for (int j = 0; j < col; j++) iMatrix[i][j] = 0;
   }
   return iMatrix;
 }
@@ -45,6 +47,7 @@ double* doubleArray(int num) {
   double *dArray = (double *)malloc(num * sizeof(double));
   if (!dArray)
     error("Out of memory error in doubleArray\n");
+  for (int i = 0; i < num; i++) dArray[i] = 0.0;
   return dArray;
 }
 
@@ -63,6 +66,7 @@ double** doubleMatrix(int row, int col) {
     dMatrix[i] = (double *)malloc((size_t)(col * sizeof(double)));
     if (!dMatrix[i])
       error("Out of memory error in doubleMatrix\n");
+    for (int j = 0; j < col; j++) dMatrix[i][j] = 0.0;
   }
   return dMatrix;
 }
@@ -102,6 +106,7 @@ long* longArray(int num) {
   long *lArray = (long *)malloc(num * sizeof(long));
   if (!lArray)
     error("Out of memory error in longArray\n");
+  for (int i = 0; i < num; i++) lArray[i] = 0.0;
   return lArray;
 }
 
