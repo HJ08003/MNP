@@ -106,7 +106,7 @@ long* longArray(int num) {
   long *lArray = (long *)malloc(num * sizeof(long));
   if (!lArray)
     error("Out of memory error in longArray\n");
-  for (int i = 0; i < num; i++) lArray[i] = 0.0;
+  for (int i = 0; i < num; i++) lArray[i] = 0;
   return lArray;
 }
 

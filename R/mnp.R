@@ -170,6 +170,9 @@
 #' ## calculate the quantities of interest for the first 3 observations
 #' pre1 <- predict(res1, newdata = detergent[1:3,])
 #' 
+#' ## set random seed
+#' set.seed(12345)
+#' 
 #' ## load the Japanese election data
 #' data(japan)
 #' ## run the multinomial probit model with ordered preferences
