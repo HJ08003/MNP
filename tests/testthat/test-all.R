@@ -3,8 +3,6 @@ library(MNP)
 library(testthat)
 context("tests MNP")
 
-accuracy <- 0.00001
-
 test_that("tests MNP on the detergent data", {
   # set random seed
   set.seed(12345)
@@ -20,10 +18,10 @@ test_that("tests MNP on the detergent data", {
   x <- summary(res1)
   expect_that(length(x), is_equivalent_to(8))
   expect_true("coef.table" %in% names(x))
-  expect_equal(x$coef.table[4, 1], 1.864768, tolerance = accuracy)
-  expect_equal(x$coef.table["(Intercept):Solo", "2.5%"], 1.108233, tolerance = accuracy)
-  expect_equal(x$cov.table[10, 1], 0.9855489, tolerance = accuracy)
-  expect_equal(x$cov.table["Tide:Tide", "mean"], 0.7952514, tolerance = accuracy)
+  expect_equal(x$coef.table[4, 1], 1.864768, tolerance = 0.001)
+  expect_equal(x$coef.table["(Intercept):Solo", "2.5%"], 1.108233, tolerance = 0.001)
+  expect_equal(x$cov.table[10, 1], 0.9855489, tolerance = 0.001)
+  expect_equal(x$cov.table["Tide:Tide", "mean"], 0.7952514, tolerance = 0.001)
   
   # calculate the quantities of interest for the first 3 observations
   x <- predict(res1, newdata = detergent[1:3,])
