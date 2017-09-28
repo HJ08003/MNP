@@ -47,15 +47,17 @@ test_that("tests MNP on the Japanese election census", {
   x <- summary(res2)
   expect_that(length(x), is_equivalent_to(8))
   expect_true("coef.table" %in% names(x))
-  expect_equal(x$cov.table[2,1], 1.01725, tolerance = accuracy)
-  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9667556, tolerance = accuracy)
-
+  expect_equal(x$cov.table[2,1], 0.9624554, tolerance = accuracy)
+  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9174738, tolerance = accuracy)
+  expect_equal(x$coef.table[3, 1], 0.456226994, tolerance = accuracy)
+  expect_equal(x$coef.table["gendermale:NFP", "2.5%"], -0.443817, tolerance = accuracy)
+  
   # calculate the predicted probabilities for the 10th observation
   # averaging over 100 additional Monte Carlo draws given each of MCMC draw.
   x <- predict(res2, newdata = japan[10,], type = "prob", n.draws = 100, verbose = TRUE)
   expect_that(length(x), is_equivalent_to(2))
   expect_true("p" %in% names(x))
-  expect_that(dim(x$p), is_equivalent_to(c(1, 4, 5000)))
+  expect_that(dim(x$p), is_equivalent_to(c(1, 4, 100)))
   expect_that(x$x[1, "age:LDP"], is_equivalent_to(50))
   expect_that(x$x[1, 1], is_equivalent_to(1))
 })  
