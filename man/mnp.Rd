@@ -177,7 +177,7 @@ data(detergent)
 res1 <- mnp(choice ~ 1, choiceX = list(Surf=SurfPrice, Tide=TidePrice,
                                        Wisk=WiskPrice, EraPlus=EraPlusPrice,
                                        Solo=SoloPrice, All=AllPrice),
-            cXnames = "price", data = detergent, n.draws = 100, burnin = 10,
+            cXnames = "price", data = detergent, n.draws = 30, burnin = 10,
             thin = 3, verbose = TRUE)
 ## summarize the results
 summary(res1)
