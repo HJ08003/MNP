@@ -30,8 +30,8 @@ test_that("tests MNP on the detergent data", {
   expect_that(length(x), is_equivalent_to(4))
   expect_true("p" %in% names(x))
   expect_that(dim(x$o), is_equivalent_to(c(3, 6, 5)))
-  expect_equal(as.numeric(x$p[1, 3]), 0.2, tolerance = 0.05)
-  expect_equal(as.numeric(x$p[3, "Wisk"]), 0.4, tolerance = 0.05)
+  expect_equal(as.numeric(x$p[1, 3]), 0.2, tolerance = accuracy)
+  expect_equal(as.numeric(x$p[3, "Wisk"]), 0.4, tolerance = accuracy)
 })  
 
 
@@ -47,8 +47,8 @@ test_that("tests MNP on the Japanese election census", {
   x <- summary(res2)
   expect_that(length(x), is_equivalent_to(8))
   expect_true("coef.table" %in% names(x))
-  expect_equal(x$cov.table[2,1], 1.01725, tolerance = 0.01)
-  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9667556, tolerance = 0.01)
+  expect_equal(x$cov.table[2,1], 1.01725, tolerance = accuracy)
+  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9667556, tolerance = accuracy)
 
   # calculate the predicted probabilities for the 10th observation
   # averaging over 100 additional Monte Carlo draws given each of MCMC draw.
