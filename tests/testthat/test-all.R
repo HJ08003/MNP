@@ -42,7 +42,7 @@ test_that("tests MNP on the Japanese election census", {
   # load the Japanese election data
   data(japan)
   # run the multinomial probit model with ordered preferences
-  res2 <- mnp(cbind(LDP, NFP, SKG, JCP) ~ gender + education + age, data = japan, verbose = TRUE)
+  res2 <- mnp(cbind(LDP, NFP, SKG, JCP) ~ gender + education + age, data = japan, verbose = TRUE, n.draws = 100)
   # summarize the results
   x <- summary(res2)
   expect_that(length(x), is_equivalent_to(8))

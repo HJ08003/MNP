@@ -177,7 +177,7 @@
 #' data(japan)
 #' ## run the multinomial probit model with ordered preferences
 #' res2 <- mnp(cbind(LDP, NFP, SKG, JCP) ~ gender + education + age, data = japan,
-#'             verbose = TRUE)
+#'             verbose = TRUE, n.draws = 100)
 #' ## summarize the results
 #' summary(res2)
 #' ## calculate the predicted probabilities for the 10th observation
