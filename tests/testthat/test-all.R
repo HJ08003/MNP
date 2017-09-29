@@ -3,7 +3,8 @@ library(MNP)
 library(testthat)
 context("tests MNP")
 
-accuracy <- 0.00001
+accuracy <- 0.0001
+accuracy2 <- 0.05
 
 test_that("tests MNP on the detergent data", {
   # set random seed
@@ -47,10 +48,10 @@ test_that("tests MNP on the Japanese election census", {
   x <- summary(res2)
   expect_that(length(x), is_equivalent_to(8))
   expect_true("coef.table" %in% names(x))
-  expect_equal(x$cov.table[2,1], 0.9624554, tolerance = accuracy)
-  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9174738, tolerance = accuracy)
-  expect_equal(x$coef.table[3, 1], 0.456226994, tolerance = accuracy)
-  expect_equal(x$coef.table["gendermale:NFP", "2.5%"], -0.443817, tolerance = accuracy)
+  expect_equal(x$cov.table[2,1], 0.9624554, tolerance = accuracy2)
+  expect_equal(x$cov.table["LDP:LDP", "mean"], 0.9174738, tolerance = accuracy2)
+  expect_equal(x$coef.table[3, 1], 0.456226994, tolerance = accuracy2)
+  expect_equal(x$coef.table["gendermale:NFP", "2.5%"], -0.443817, tolerance = accuracy2)
   
   # calculate the predicted probabilities for the 10th observation
   # averaging over 100 additional Monte Carlo draws given each of MCMC draw.
